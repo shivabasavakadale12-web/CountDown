@@ -10,7 +10,10 @@ public class Movement : MonoBehaviour
     Animator animator;
     SpriteRenderer SpriteRenderer;
 
-    
+    const string attack = "hit";
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,7 +48,6 @@ public class Movement : MonoBehaviour
         rb.MovePosition(newpostion);
 
         bool ismoving = movement.magnitude > 0;
-        Debug.Log("Movement: " + movement + " ismoving: " + ismoving);
         animator.SetBool("walk", ismoving);
         animator.SetBool("idle", !ismoving);
 
@@ -60,7 +62,12 @@ public class Movement : MonoBehaviour
             SpriteRenderer.flipX = false;
         }
 
-        
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            
+            animator.SetTrigger(attack);
+            
+        }
 
 
     }
