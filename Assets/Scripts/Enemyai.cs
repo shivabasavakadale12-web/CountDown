@@ -13,7 +13,6 @@ public class Enemyai : MonoBehaviour
     SpriteRenderer spriterenderer;
     Animator animator;
 
-    bool ismoving = true;
     bool isattacking = false;
 
     void Start()

@@ -23862,6 +23862,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6187546545152741001, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
   m_PrefabInstance: {fileID: 1668539144506311196}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933742611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933742589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414e072269ea3044da11b451144a5d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1936991027
 GameObject:
   m_ObjectHideFlags: 0
@@ -26646,9 +26661,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 946084869360833157, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3787445551183480580, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 1933742611}
   m_SourcePrefab: {fileID: 100100000, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
 --- !u!1001 &1958921093147918201
 PrefabInstance:
@@ -26658,6 +26677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1145299544699627463, guid: 57e64658a404aa542a4f84a5d78f19b8, type: 3}
+      propertyPath: timedelyaed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1623910803735741951, guid: 57e64658a404aa542a4f84a5d78f19b8, type: 3}
       propertyPath: m_Name
       value: enemy1

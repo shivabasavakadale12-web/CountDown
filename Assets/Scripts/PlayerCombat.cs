@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+ [SerializeField] LayerMask mask;
+
+    float radius = 0.7f;
+
+    public void enemydamage()
     {
-        
+     Collider2D damagearea = Physics2D.OverlapCircle(this.transform.position, radius, mask);
+
+        if (damagearea != null )
+        {
+            EnemyHealth enemy = damagearea.GetComponent<EnemyHealth>();
+            enemy.takedamage(1);
+        }
     }
 }

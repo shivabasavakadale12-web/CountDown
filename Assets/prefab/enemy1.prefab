@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5457220886092983618}
   - component: {fileID: 2660953826819529591}
   - component: {fileID: 3454055634197441998}
+  - component: {fileID: 1145299544699627463}
   - component: {fileID: 8884499190048453435}
   - component: {fileID: 2759491022783247467}
   - component: {fileID: 5874937526346683456}
@@ -119,6 +120,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1145299544699627463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623910803735741951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2647d00f0350e4bac165de13414ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
 --- !u!70 &8884499190048453435
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
