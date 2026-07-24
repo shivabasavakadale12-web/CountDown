@@ -1,13 +1,15 @@
 using System;
-using System.Net.Security;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
   public  float health = 10f;
     float Protectionshield = 0.6f;
-
+    float maxhealth = 10f;
     public static PlayerHealth instance;
+
+    [SerializeField] Image healthbarfill;
 
     Animator animator;
     Rigidbody2D rb;
@@ -31,10 +33,15 @@ public class PlayerHealth : MonoBehaviour
         {
             amount *= Protectionshield;
         }
+
         health -= amount;
+      
 
 
-        Debug.Log("player health: " + health);
+        float normalizehealthbar = health / maxhealth;
+        healthbarfill.fillAmount = Mathf.Lerp(0.2f, 1f, normalizehealthbar);
+      
+
         if (health <= 0)
         {
             Disableenemyai();
@@ -51,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    [Obsolete]
     private static void Disableenemyai()
     {
         foreach (Enemyai ai in FindObjectsOfType<Enemyai>())
@@ -59,5 +67,9 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void UpdateHealthUI()
+    {
+        healthbarfill.fillAmount = health / maxhealth;
+    }
 
 }

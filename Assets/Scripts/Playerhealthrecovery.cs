@@ -11,7 +11,11 @@ public class Playerhealthrecovery : MonoBehaviour
             if(PlayerHealth.instance.health != 10f)
             {
                 PlayerHealth.instance.health = 10f;
+                PlayerHealth.instance.UpdateHealthUI();
             }
+
+            Debug.Log("Health after heal = " + PlayerHealth.instance.health);
+
 
             Destroy(gameObject);
         }

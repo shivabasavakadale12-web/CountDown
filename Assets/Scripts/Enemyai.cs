@@ -30,11 +30,10 @@ public class Enemyai : MonoBehaviour
         Vector3 position = rb.position;
         Vector2 direction = target.position - position;
         float distance = Vector2.Distance(position, target.position);
-        Debug.Log("Distance: " + distance + "  AttackRange: " + attackingrange);
+        
 
         if (distance > attackingrange)
-        {
-            Debug.Log("moving");
+        {       
          position = Vector2.MoveTowards(position, target.position, movespeed * Time.deltaTime);     
          rb.MovePosition (position);
         }
@@ -43,7 +42,6 @@ public class Enemyai : MonoBehaviour
         {
             
           isattacking = true;
-            Debug.Log("attacking");
            if(isattacking)
             {
              attackplayer();
