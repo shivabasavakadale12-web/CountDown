@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8884499190048453435}
   - component: {fileID: 2759491022783247467}
   - component: {fileID: 5874937526346683456}
+  - component: {fileID: 1409486179666170822}
   m_Layer: 6
   m_Name: enemy1
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2647d00f0350e4bac165de13414ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  timedelyaed: 2
 --- !u!70 &8884499190048453435
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -209,6 +211,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemyai
   Player: {fileID: 0}
+--- !u!114 &1409486179666170822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623910803735741951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc51769dcff2c2444ab3cafe30ca1f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyCombat
+  mask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6542738242413470426
 GameObject:
   m_ObjectHideFlags: 0

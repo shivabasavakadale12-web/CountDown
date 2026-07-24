@@ -5397,6 +5397,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &444376883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623910803735741951, guid: 57e64658a404aa542a4f84a5d78f19b8, type: 3}
+  m_PrefabInstance: {fileID: 1958921093147918201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &452621036
 GameObject:
   m_ObjectHideFlags: 0
@@ -23877,6 +23882,19 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1933742618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933742589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d88be84870a8a4d9dab814e647934c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  enemy: {fileID: 444376883}
 --- !u!1 &1936991027
 GameObject:
   m_ObjectHideFlags: 0
@@ -26668,6 +26686,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3787445551183480580, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
       insertIndex: 6
       addedObject: {fileID: 1933742611}
+    - targetCorrespondingSourceObject: {fileID: 3787445551183480580, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1933742618}
   m_SourcePrefab: {fileID: 100100000, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
 --- !u!1001 &1958921093147918201
 PrefabInstance:
@@ -26677,10 +26698,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1145299544699627463, guid: 57e64658a404aa542a4f84a5d78f19b8, type: 3}
-      propertyPath: timedelyaed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1623910803735741951, guid: 57e64658a404aa542a4f84a5d78f19b8, type: 3}
       propertyPath: m_Name
       value: enemy1
@@ -26801,7 +26818,7 @@ SceneRoots:
   - {fileID: 842450756}
   - {fileID: 1668539144506311196}
   - {fileID: 1910000301}
-  - {fileID: 1958921093147918201}
   - {fileID: 538031754}
   - {fileID: 992439003}
   - {fileID: 1926823237}
+  - {fileID: 1958921093147918201}

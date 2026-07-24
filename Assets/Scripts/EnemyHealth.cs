@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float timedelyaed = 0.6f;
+   
 
     int health = 5;
 
@@ -22,12 +23,13 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger(dead);
+            GetComponent<Enemyai>().enabled = false;
             Invoke("delaydestroy", timedelyaed);
         }
     }
 
   public void delaydestroy()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
