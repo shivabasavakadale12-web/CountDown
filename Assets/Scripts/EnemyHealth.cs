@@ -3,9 +3,10 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float timedelyaed = 0.6f;
-   
+    [SerializeField] GameObject healthrec;
+    [SerializeField] GameObject[] healthbar;
 
-    int health = 5;
+    int health = 4;
 
     const string dead = "death";
 
@@ -20,6 +21,18 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= amount;
 
+        int currentindex = 4 - health;
+
+        for (int i = 0; i < healthbar.Length; i++)
+        {                 
+           healthbar[i].SetActive(false);
+        }
+
+        if (currentindex >= 0 && currentindex < healthbar.Length)
+        {
+            healthbar[currentindex].SetActive(true);
+        }
+
         if (health <= 0)
         {
             animator.SetTrigger(dead);
@@ -30,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
 
   public void delaydestroy()
     {
+        Instantiate(healthrec,transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

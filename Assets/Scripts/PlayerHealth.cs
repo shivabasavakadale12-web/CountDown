@@ -1,14 +1,23 @@
 using System;
+using System.Net.Security;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
-    int health = 10;
+  public  float health = 10f;
+    float Protectionshield = 0.6f;
+
+    public static PlayerHealth instance;
 
     Animator animator;
     Rigidbody2D rb;
 
     Enemyai enemyai;
+
+    private void Awake()
+    {
+        instance = this;    
+    }
 
     private void Start()
     {
@@ -16,9 +25,14 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Takedamage(int amount)
+    public void Takedamage(float amount)
     {
+        if(shield.instance.isshield == true)
+        {
+            amount *= Protectionshield;
+        }
         health -= amount;
+
 
         Debug.Log("player health: " + health);
         if (health <= 0)
