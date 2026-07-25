@@ -2,7 +2,7 @@
 - Project name: CountDown
 - Unity version: Unity 6000.3.10f1
 - Active game object:
-  - Name: wave manager
+  - Name: Canvas
   - Tag: Untagged
-  - Layer: Default
+  - Layer: uielements
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

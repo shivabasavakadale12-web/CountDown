@@ -2,17 +2,20 @@ using UnityEngine;
 
 public class Enemyai : MonoBehaviour
 {
-                     Transform target;
+    [SerializeField] AudioSource swordswing;
+    
+    Transform target;
 
     float movespeed;
     float attackingrange;
+    float cooldown = 1f;
+    float cooldowntimer = 0f;
 
-   
     Rigidbody2D rb;
     SpriteRenderer spriterenderer;
     Animator animator;
 
-    bool isattacking = false;
+  
 
     void Start()
     {
@@ -29,23 +32,19 @@ public class Enemyai : MonoBehaviour
         Vector3 position = rb.position;
         Vector2 direction = target.position - position;
         float distance = Vector2.Distance(position, target.position);
-        
+
+        cooldowntimer += Time.deltaTime;
 
         if (distance > attackingrange)
         {       
          position = Vector2.MoveTowards(position, target.position, movespeed * Time.deltaTime);     
          rb.MovePosition (position);
         }
-
         else
         {
-            
-          isattacking = true;
-           if(isattacking)
-            {
-             attackplayer();
-            }
+         attackplayer();
         }
+        
         if (direction.x > 0f)
         {
             spriterenderer.flipX = false;
@@ -54,13 +53,16 @@ public class Enemyai : MonoBehaviour
         {
             spriterenderer.flipX = true;
         }
+
     }
 
     void attackplayer()
     {
-        if (!isattacking) return;
-       
-        animator.SetTrigger("attack");
-        isattacking = false;
+      if(cooldown <= cooldowntimer)
+      {
+       swordswing.Play();
+       animator.SetTrigger("attack");
+       cooldowntimer = 0f;
+      }
     }
 }

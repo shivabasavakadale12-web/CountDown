@@ -5,8 +5,16 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float timedelyaed = 0.6f;
     [SerializeField] GameObject healthrec;
     [SerializeField] GameObject[] healthbar;
+    [SerializeField] AudioSource enemydeath;
 
-    int health = 4;
+    public static EnemyHealth instance;
+
+   public int health = 4;
+
+
+    public bool dropreward = true;
+
+    Rigidbody2D rb;
 
     const string dead = "death";
 
@@ -14,7 +22,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void takedamage(int amount)
@@ -35,16 +45,25 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            wavemanagerr.instance.enemydied();
-            animator.SetTrigger(dead);
+            if (dropreward)
+            {
+             wavemanagerr.instance.enemydied();
+             enemydeath.Play();
+            }
             GetComponent<Enemyai>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            animator.SetTrigger(dead);
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
             Invoke("delaydestroy", timedelyaed);
         }
     }
 
   public void delaydestroy()
     {
-        Instantiate(healthrec,transform.position, Quaternion.identity);
+        if (dropreward)
+        {
+         Instantiate(healthrec,transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

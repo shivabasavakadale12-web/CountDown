@@ -1,11 +1,17 @@
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
     [SerializeField] TMP_Text timetext;
-    float time = 120;
+    [SerializeField] GameObject endmenu;
+    [SerializeField] AudioSource endaudio;
 
+    float time = 10;
+
+    bool endgame = false;
     void Update()
     {
 
@@ -16,11 +22,22 @@ public class CountDown : MonoBehaviour
 
         }
 
-        if (time == 0)
+        if (time <= 0 && !endgame)
         {
             time = 0;
-            //game over logic here with ui wait for it tho hehe.
-            //text of you survived and then buttons of play again and quit thats all 
+            
+       
+          foreach (EnemyHealth enemy in FindObjectsOfType<EnemyHealth>())
+          {
+                enemy.dropreward = false;
+                enemy.takedamage(4);
+          }
+
+            
+          Movement.instance.movespeed = 0;
+          endmenu.SetActive(true);
+          endaudio.Play();
+          endgame = true;
         }
     }
 }

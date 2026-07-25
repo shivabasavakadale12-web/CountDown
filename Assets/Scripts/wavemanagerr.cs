@@ -40,12 +40,17 @@ public class wavemanagerr : MonoBehaviour
 
         if (enemydeathcounter == 6)
         {
-            enemywaves(8);
+            enemywaves(10);
         }
 
-        if (enemydeathcounter == 14)
+        if (enemydeathcounter == 16)
         {
-            enemywaves(10);
+            enemywaves(12);
+        }
+
+        if (enemydeathcounter == 28) 
+        {
+           //game over stuff here!
         }
     }
 

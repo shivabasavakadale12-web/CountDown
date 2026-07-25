@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float movespeed = 4f;
+    public float movespeed = 4f;
+    [SerializeField] AudioSource knifeswing;
 
     Rigidbody2D rb;
     Vector2 movement;
@@ -12,10 +13,11 @@ public class Movement : MonoBehaviour
 
     const string attack = "hit";
 
-
+    public static Movement instance;
 
     private void Awake()
     {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -64,7 +66,9 @@ public class Movement : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            
+           
+
+            knifeswing.Play();  
             animator.SetTrigger(attack);
             
         }

@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
-  public  float health = 10f;
+
+    [SerializeField] AudioSource deathaudio;
+
+    public  float health = 10f;
     float Protectionshield = 0.6f;
     float maxhealth = 10f;
     public static PlayerHealth instance;
@@ -45,10 +48,10 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Disableenemyai();
-
             rb.bodyType = RigidbodyType2D.Kinematic;
             GetComponent<CapsuleCollider2D>().enabled = false;
             animator.SetTrigger("fall");
+            deathaudio.Play();
             GetComponent<Movement>().enabled = false;
             Invoke("Scenemanagers", 2f);
         }
