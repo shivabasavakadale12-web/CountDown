@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] AudioSource deathaudio;
+    [SerializeField] AudioSource gameover;
+    [SerializeField] GameObject gameoverui;
+    [SerializeField] GameObject themeaudio;
 
     public  float health = 10f;
     float Protectionshield = 0.6f;
@@ -53,12 +56,15 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("fall");
             deathaudio.Play();
             GetComponent<Movement>().enabled = false;
+            Destroy(themeaudio);
+            gameover.Play();
             Invoke("Scenemanagers", 2f);
         }
     }
     public void Scenemanagers()
     {
-        SceneManager.LoadScene(2);
+        Time.timeScale = 0f;
+        gameoverui.SetActive(true);
     }
 
     [Obsolete]

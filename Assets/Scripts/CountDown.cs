@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
+    [SerializeField] GameObject shield;
+    [SerializeField] GameObject lights;
+    [SerializeField] AudioSource siren;
     [SerializeField] TMP_Text timetext;
     [SerializeField] GameObject endmenu;
     [SerializeField] AudioSource endaudio;
 
-    float time = 10;
+    float time = 180;
 
     bool endgame = false;
+    bool lightson = false;
     void Update()
     {
 
@@ -19,6 +23,15 @@ public class CountDown : MonoBehaviour
         {
             time -= Time.deltaTime;
             timetext.text = Mathf.Ceil(time).ToString("000");
+
+        }
+
+        if (time <= 10 && !lightson)
+        {
+            lightson = true;
+            lights.SetActive(true);
+            siren.Play();
+            Destroy(shield);
 
         }
 

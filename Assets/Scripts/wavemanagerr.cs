@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class wavemanagerr : MonoBehaviour
 {
 
     [SerializeField] GameObject enemy;
+    [SerializeField] GameObject wave1text;
     public int enemydeathcounter = 0;
 
     float spawneroffestx;
@@ -19,6 +21,9 @@ public class wavemanagerr : MonoBehaviour
     {
         enemywaves(6);
     }
+
+   
+
 
     public void enemywaves(int count)
     {
