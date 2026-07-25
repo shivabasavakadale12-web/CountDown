@@ -19,7 +19,4 @@ public class audio : MonoBehaviour
             ismute = true;
         }
     }
-    
-    
-
 }

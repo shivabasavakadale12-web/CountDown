@@ -20,6 +20,7 @@ public class CountDown : MonoBehaviour
         {
             time = 0;
             //game over logic here with ui wait for it tho hehe.
+            //text of you survived and then buttons of play again and quit thats all 
         }
     }
 }

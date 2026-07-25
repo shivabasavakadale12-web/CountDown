@@ -55,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Scenemanagers()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     [Obsolete]

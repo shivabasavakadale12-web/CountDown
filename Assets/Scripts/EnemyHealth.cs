@@ -35,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            wavemanagerr.instance.enemydied();
             animator.SetTrigger(dead);
             GetComponent<Enemyai>().enabled = false;
             Invoke("delaydestroy", timedelyaed);

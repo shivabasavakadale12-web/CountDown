@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f75a64b16e2e9c448305a624f481774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemyai
-  Player: {fileID: 0}
+  Player: {fileID: 3787445551183480580, guid: a5319999a015d6c4b94ac01d2483d59a, type: 3}
 --- !u!114 &1409486179666170822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Enemyai : MonoBehaviour
 {
-    [SerializeField] GameObject Player;
                      Transform target;
 
     float movespeed;
@@ -19,7 +18,7 @@ public class Enemyai : MonoBehaviour
     {
         movespeed = Random.Range(2f, 3.5f);
         attackingrange = Random.Range(0.85f, 1.2f);
-        target = Player.transform;
+        target = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
