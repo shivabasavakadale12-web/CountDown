@@ -9,10 +9,12 @@ public class wavemanagerr : MonoBehaviour
     [SerializeField] GameObject lights;
     [SerializeField] AudioSource copsiren;
     [SerializeField] AudioSource audioSource;
+
     public int enemydeathcounter = 0;
 
     float spawneroffestx;
     float spawneroffesty;
+
     public static wavemanagerr instance;
 
      void Awake()
