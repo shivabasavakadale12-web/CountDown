@@ -5,7 +5,10 @@ public class wavemanagerr : MonoBehaviour
 {
 
     [SerializeField] GameObject enemy;
-    [SerializeField] GameObject wave1text;
+    [SerializeField] GameObject gameover;
+    [SerializeField] GameObject lights;
+    [SerializeField] AudioSource copsiren;
+    [SerializeField] AudioSource audioSource;
     public int enemydeathcounter = 0;
 
     float spawneroffestx;
@@ -21,9 +24,6 @@ public class wavemanagerr : MonoBehaviour
     {
         enemywaves(6);
     }
-
-   
-
 
     public void enemywaves(int count)
     {
@@ -53,10 +53,20 @@ public class wavemanagerr : MonoBehaviour
             enemywaves(12);
         }
 
+        if (enemydeathcounter == 27)
+        {
+            lights.SetActive(true);
+            copsiren.Play();
+        }
         if (enemydeathcounter == 28) 
         {
-           //game over stuff here!
+            audioSource.Play();
+            Invoke("gamewon", 2f);
         }
     }
-
+    void gamewon()
+    {
+     Time.timeScale = 0f;        
+     gameover.SetActive(true);
+    }
 }
